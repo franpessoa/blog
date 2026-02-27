@@ -1,0 +1,10 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+const { data } = Astro.props;
+---
+
+<BaseLayout title={data.title} lang={data.lang}>
+    <h1 class="title">{data.title}</h1>
+    <h3>{data.up} / mod {data.mod}</h3>
+    <slot />
+</BaseLayout>

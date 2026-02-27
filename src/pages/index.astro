@@ -1,16 +1,25 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogPostCard from "../components/BlogPostCard.astro";
+import { prettyDate } from "../utils/dateFormatter";
+import { getCollection } from "astro:content";
 
+const allPosts = await getCollection("posts");
+console.log(allPosts);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout t="Índex">
+    <h1>O Luciglobo</h1>
+    <ul>
+        {
+            allPosts.map((post) => (
+                <BlogPostCard
+                    url={post.id}
+                    title={post.data.title}
+                    mod={post.data.mod}
+                    up={post.data.up}
+                />
+            ))
+        }
+    </ul>
+</BaseLayout>
