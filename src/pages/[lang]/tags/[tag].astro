@@ -21,12 +21,10 @@ export const getStaticPaths = (async () => {
             props: { filteredPosts: filteredPosts },
         };
     });
-    console.log(tagPaths);
 
     let paths = [];
 
     for (let enTagPath of tagPaths) {
-        console.log(enTagPath);
         enTagPath.params["lang"] = "en";
         let ptTagPath = structuredClone(enTagPath);
         ptTagPath.params["lang"] = "pt-br";
@@ -40,7 +38,6 @@ export const getStaticPaths = (async () => {
 
 const { tag, lang } = Astro.params;
 const { filteredPosts } = Astro.props;
-console.log(filteredPosts);
 ---
 
 <BaseLayout title={"#" + tag} {lang}>

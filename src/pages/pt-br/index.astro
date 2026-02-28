@@ -4,7 +4,6 @@ import BlogPostCard from "/src/components/BlogPostCard.astro";
 import { getCollection } from "astro:content";
 
 const allPosts = await getCollection("posts");
-console.log(allPosts);
 ---
 
 <BaseLayout title="Sumário" lang="pt-br">
