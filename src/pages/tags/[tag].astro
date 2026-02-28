@@ -32,7 +32,7 @@ const { filteredPosts } = Astro.props;
 ---
 
 <BaseLayout title={tag}>
-    <h1>Tag: <span style="font-style: ;">#{tag}</span></h1>
+    <h1>Tag: #{tag}</h1>
     <ul>
         {
             filteredPosts.map((post: any) => (

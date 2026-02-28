@@ -17,7 +17,9 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BaseLayout>
-    <h1>{post.data.title}</h1>
+<BaseLayout lang={post.data.lang} title={post.data.title}>
+    <div class="post">
+    <h1 class="title">{post.data.title}</h1>
     <Content />
+    </div>
 </BaseLayout>

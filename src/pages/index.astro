@@ -8,8 +8,7 @@ const allPosts = await getCollection("posts");
 console.log(allPosts);
 ---
 
-<BaseLayout t="Índex">
-    <h1>O Luciglobo</h1>
+<BaseLayout title="Índex">
     <ul>
         {
             allPosts.map((post) => (

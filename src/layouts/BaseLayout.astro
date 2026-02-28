@@ -1,5 +1,6 @@
 ---
 import Header from "../components/Header.astro";
+import "../styles/base.css";
 
 const { title, lang } = Astro.props;
 ---
@@ -10,10 +11,13 @@ const { title, lang } = Astro.props;
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href='https://fonts.googleapis.com/css?family=EB Garamond' rel='stylesheet'>
         <title>{title}</title>
     </head>
     <body>
+        <div class="ctt">
         <Header />
-        <slot />
+        <slot/>
+        </div>
     </body>
 </html>
