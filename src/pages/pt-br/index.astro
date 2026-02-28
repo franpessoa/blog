@@ -1,0 +1,26 @@
+---
+import BaseLayout from "/src/layouts/BaseLayout.astro";
+import BlogPostCard from "/src/components/BlogPostCard.astro";
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection("posts");
+console.log(allPosts);
+---
+
+<BaseLayout title="Sumário" lang="pt-br">
+    <h1>Sumário</h1>
+    <ul>
+        {
+            allPosts.map((post) => (
+                <BlogPostCard
+                    url={post.id}
+                    title={post.data.title}
+                    mod={post.data.mod}
+                    up={post.data.up}
+                    displayLang={post.id.startsWith("pt-br") ? undefined : "en"}
+                />
+            ))
+        }
+    </ul>
+    <a href="/pt-br/tags">Tags</a>
+</BaseLayout>

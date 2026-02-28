@@ -7,15 +7,11 @@ import { getCollection } from "astro:content";
 export const getStaticPaths = (async () => {
     // taken from https://docs.astro.build/en/tutorial/5-astro-api/2/#advanced-javascript-generate-pages-from-existing-tags
     const allPosts: any[] = await getCollection("posts");
-    console.log(allPosts);
-
     const uniqueTags = [
         ...new Set(allPosts.map((post: any) => post.data.tags).flat()),
     ];
 
-    console.log(uniqueTags);
-
-    return uniqueTags.map((tag) => {
+    const tagPaths = uniqueTags.map((tag) => {
         const filteredPosts = allPosts.filter((post: any) =>
             post.data.tags.includes(tag),
         );
@@ -25,19 +21,35 @@ export const getStaticPaths = (async () => {
             props: { filteredPosts: filteredPosts },
         };
     });
+    console.log(tagPaths);
+
+    let paths = [];
+
+    for (let enTagPath of tagPaths) {
+        console.log(enTagPath);
+        enTagPath.params["lang"] = "en";
+        let ptTagPath = structuredClone(enTagPath);
+        ptTagPath.params["lang"] = "pt-br";
+
+        paths.push(enTagPath);
+        paths.push(ptTagPath);
+    }
+
+    return paths;
 }) satisfies GetStaticPaths;
 
-const { tag } = Astro.params;
+const { tag, lang } = Astro.params;
 const { filteredPosts } = Astro.props;
+console.log(filteredPosts);
 ---
 
-<BaseLayout title={tag}>
+<BaseLayout title={"#" + tag} {lang}>
     <h1>Tag: #{tag}</h1>
     <ul>
         {
             filteredPosts.map((post: any) => (
                 <BlogPostCard
-                    url={"/" + post.id}
+                    url={post.id}
                     title={post.data.title}
                     up={post.data.up}
                     mod={post.data.mod}

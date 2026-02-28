@@ -1,5 +1,11 @@
 ---
-const { title, mod, up, url } = Astro.props;
+const { title, mod, up, url, displayLang } = Astro.props;
 ---
 
-<li><a href={url}>{title} ({up} {mod ? "/ mod " + mod : ""})</a></li>
+<li>
+    <a href={"/" + url}
+        >{title} ({up}{mod ? " / mod " + mod : ""}) {
+            displayLang ? "<" + displayLang + ">" : ""
+        }</a
+    >
+</li>
