@@ -6,8 +6,18 @@ import { getCollection } from "astro:content";
 const allPosts = await getCollection("posts");
 ---
 
-<BaseLayout title="Index" lang="en">
+<BaseLayout title="sietch.link" lang="en">
+    <p>
+        <i
+            >And no man ever again shall want for water. It shall be his for
+            dipping from well or pond or lake or canal. It shall run down
+            through the qanats to feed our plants. It shall be there for any man
+            to take. It shall be his for holding out his hand.</i
+        >
+    </p>
+    &mdash; Frank Herbert, <i>Dune</i>
     <h1>Index</h1>
+    <a href="/en/tags">Tags</a>
     <ul>
         {
             allPosts.map((post) => (
@@ -21,5 +31,4 @@ const allPosts = await getCollection("posts");
             ))
         }
     </ul>
-    <a href="/en/tags">Tags</a>
 </BaseLayout>
