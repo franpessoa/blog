@@ -208,12 +208,12 @@ figure figcaption {
 header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
-header nav {
+.header-right {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    gap: 1rem;
 }
 
 header a + a {
