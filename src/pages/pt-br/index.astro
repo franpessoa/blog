@@ -3,7 +3,9 @@ import BaseLayout from "/src/layouts/BaseLayout.astro";
 import BlogPostCard from "/src/components/BlogPostCard.astro";
 import { getCollection } from "astro:content";
 
-const allPosts = await getCollection("posts");
+const allPosts = (await getCollection("posts")).sort((a, b) =>
+    a.data.up.localeCompare(b.data.up),
+);
 ---
 
 <BaseLayout title="sietch.link" lang="pt-br">

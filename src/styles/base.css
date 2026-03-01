@@ -58,12 +58,6 @@ p {
     hyphenate-limit-chars: auto 3;
 }
 
-p code {
-    background-color: #eee;
-    padding: 0.05em 0.2em;
-    border: 1px solid #ccc;
-}
-
 ol,
 ul {
     margin: 1em;
@@ -168,16 +162,6 @@ h3 {
     font-size: 1.75em;
 }
 
-.tags {
-    margin-top: -1.5rem;
-    padding-bottom: 1.5em;
-}
-
-.tags li {
-    display: inline;
-    margin-right: 0.5em;
-}
-
 figure {
     margin: 1em 0;
 }
@@ -187,22 +171,6 @@ figure figcaption {
     font-size: 0.75em;
     text-align: center;
     color: grey;
-}
-
-.footnote-definition sup {
-    margin-left: -1.5em;
-    float: left;
-}
-
-.footnote-definition .footnote-body {
-    margin: 1em 0;
-    padding: 0 1em;
-    border: 1px dashed;
-    background-color: rgba(200, 200, 200, 0.2);
-}
-
-.footnote-definition .footnote-body p:only-child {
-    margin: 0.2em 0;
 }
 
 header {
@@ -218,30 +186,4 @@ header {
 
 header a + a {
     margin-left: 1rem;
-}
-
-.post {
-    margin: 0;
-    list-style: none;
-}
-
-.post a {
-    display: flex;
-    padding: 0.5em 0;
-    color: black;
-}
-
-.post a:hover,
-.post a:focus,
-.post a:active {
-    text-decoration: none;
-    background: rgba(200, 200, 200, 0.2);
-}
-
-.post date {
-    font-family: monospace, monospace;
-    font-size: 0.8rem;
-    vertical-align: middle;
-    padding-right: 2rem;
-    color: grey;
 }
